@@ -142,10 +142,10 @@ public class USBTransfer implements Runnable{
 		byte[] tmp = formEnterBootCmd();
 
 		// Debug
-		for(int i = 0 ; i < tmp.length; i++){
-			logDetails( Utils.byteToHex(tmp[i]) + " ");
-		}
-		logDetails("\n");
+//		for(int i = 0 ; i < tmp.length; i++){
+//			logDetails( Utils.byteToHex(tmp[i]) + " ");
+//		}
+//		logDetails("\n");
 		//Debug
 
 		int outSize = USBManager.epXfer(dev, OUT_EP, tmp);
