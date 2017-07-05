@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.StatusBar?>
+
+<BorderPane fx:id="bPaneMainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#openOnDragDrop" onDragOver="#openOnDragOver" prefHeight="427.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ykc.cyusbboothost.MainWindowController">
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <TabPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <tabs>
+                  <Tab closable="false" text="Log Window">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <content>
+                                          <TextArea fx:id="txtAreaLog" editable="false">
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </TextArea>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <StatusBar fx:id="statusBar" prefHeight="0.0" prefWidth="893.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <VBox prefHeight="43.0" prefWidth="1048.0" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                  <Button fx:id="bOpen" mnemonicParsing="false" onAction="#openCyacd" />
+                  <Button fx:id="bDownload" mnemonicParsing="false" onAction="#downloadFw" />
+                  <Button fx:id="bClear" mnemonicParsing="false" onAction="#clearLog" />
+                  <Button fx:id="bAbout" mnemonicParsing="false" onAction="#showAboutMe" />
+               </items>
+            </ToolBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                  <Label text="Dev" />
+                  <ComboBox fx:id="cBoxDeviceList" prefHeight="31.0" prefWidth="278.0" />
+                  <Label text="VID" />
+                  <TextField fx:id="txtVid" maxWidth="-Infinity" onAction="#vidChanged" prefHeight="31.0" prefWidth="90.0" text="0x04B4" />
+                  <Label text="PID" />
+                  <TextField fx:id="txtPid" maxWidth="-Infinity" onAction="#pidChanged" prefHeight="31.0" prefWidth="90.0" text="0xB71D" />
+                  <CheckBox fx:id="chkSkey" mnemonicParsing="false" />
+                  <Label text="Skey" />
+                  <TextField fx:id="txtSkey" maxWidth="-Infinity" prefHeight="31.0" prefWidth="160.0" text="0x000000000000" />
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
