@@ -1,12 +1,12 @@
 # CyUSBBootHost - Cypress USB Bootloader Host
-![alt text](https://github.com/tejv/CyUSBBootHost/blob/master/gui_image.png)
+![alt text](https://github.com/tejv/CyUSBBootHost/blob/master/gui_image.PNG)
 
 --------------------------------------------------------------------------------
 Quick Start Guide Cypress USB Bootloader Host
 --------------------------------------------------------------------------------
 Author: Tejender Sheoran
 
-Email: teju@cypress.com, tejendersheoran@gmail.com
+Email:  tejendersheoran@gmail.com, teju@cypress.com
 
 Copyright (C) <2017>  <Tejender Sheoran>
 
@@ -42,7 +42,8 @@ Setup
       for that port because by default device bind to cypress driver.
     . Easy way to do this is to use zadig tool from http://zadig.akeo.ie/
     . Download the tool and run it.
-    . In Options menu click on List all devices. Then select the analyzer device and replace driver(not Install WICD driver) to libusbk.
+    . In Options menu click on List all devices. Then select the cy device
+      and replace driver(not Install WICD driver) to libusbk.
   ### Linux
     . Make sure user has read/write permisssion to the usb device. 
     . If not, to fix this create a file or append if already exists 
