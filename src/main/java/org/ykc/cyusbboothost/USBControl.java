@@ -44,7 +44,7 @@ public class USBControl implements USBManListener{
 		this.skey = skey;
 		isSkeyEnabled = true;
 	}
-	
+
 	public void setCyacdData(CyacdData cyData) {
 		this.cyData = cyData;
 		isSkeyEnabled = false;
@@ -179,5 +179,10 @@ public class USBControl implements USBManListener{
 		else {
 			usbTransferTask.start(cyData);
 		}
+	}
+
+	public void terminate() {
+		usbTransferTask.stop();
+		usbTransferTask.terminate();
 	}
 }

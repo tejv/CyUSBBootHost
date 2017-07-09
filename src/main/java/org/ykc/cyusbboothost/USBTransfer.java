@@ -34,7 +34,8 @@ public class USBTransfer implements Runnable{
 	static  final byte OUT_EP = (byte)0x1;
 	static  final int MAX_READ_SIZE = 64;
 	private byte[] tmpInArray = new byte[MAX_READ_SIZE];
-	private boolean isBootloading = false;
+	private volatile boolean isBootloading = false;
+	private volatile boolean isTerminated = false;
 	private UsbDevice dev = null;
 	private StatusBar statusBar;
 	private CyacdData cyData;
@@ -95,6 +96,9 @@ public class USBTransfer implements Runnable{
 
 		while(true)
 		{
+			if(isTerminated){
+				break;
+			}
 			if(isBootloading)
 			{
 				try {
@@ -115,7 +119,7 @@ public class USBTransfer implements Runnable{
 			}
 
 			try {
-				Thread.sleep(100);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 
 			}
@@ -340,5 +344,12 @@ public class USBTransfer implements Runnable{
 			statusBar.setProgress(progress);
         });
 	}
+
+	public void terminate() {
+		isTerminated = true;
+
+	}
+
+
 }
 
