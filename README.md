@@ -33,7 +33,7 @@ Overview
 Setup
 -------------------------------------------------------------------------------
 1. Get the latest version from output folder.
-2. Install latest JRE(Java Runtime environment).
+2. Install JRE8(Java Runtime environment). On ubuntu install javafx as well as it is not part of openjdk.
 3. Install Driver 
   ### Windows
     . Install libusb win32 driver. By default CY device might bind to Windows usbhid driver. 
@@ -57,3 +57,39 @@ Setup
 4. Run CyBootloaderHost-version.jar.
 5. Open .cyacd file.
 6. Click download button to start bootloading.
+
+--------------------------------------------------------------------------------------------------
+Steps to compile source
+--------------------------------------------------------------------------------------------------
+For JDk Windows is simple. Javafx is part of JDk
+For linux "get synaptic packet manager
+sudo apt-get install synaptic
+Then in synaptic search open jdk
+Select openjdk-x-jdk and mark install then apply. " or "sudo apt-get install openjdk-8-jdk"
+JAVAFX is not part of openjdk in linux. So install javafx
+sudo apt-get install openjfx
+
+1. Get prebundled eclipse from
+http://efxclipse.bestsolution.at/
+Download compressed file and unzip it. Eclipse will run out of the box for windows/ubuntu.
+2. Get scenebuilder from Gloun
+http://gluonhq.com/products/scene-builder/
+Get .deb for ubuntu and Close synaptic, install using software center. 
+Get .exe for windows
+Add controlsfx and jfoenix to scenebuilder. (small jar/fxml manager icon after library textbox).
+Make sure to use same version as used by build.gradle. Once build is done these get downloaded in build directory.
+Also make sure java version of scenebuilder is same as original project.
+3. Install gradle on eclipse
+   In eclipse help-> Install new software
+   In work with select eclipse install. Then wait for list of available software to load(pending)
+   Then select Buildship:Eclipse Plug-ins for Gradle
+   Click next, next till finish.
+4. Import existing git gradle project in eclipse.
+    Make sure if project looks for gradle.properties file create it from gradle.properties.example
+   In file menu click import
+   Then gradle project. Then follow the steps.
+   Close the welcome screen.
+   Add gradle tab in lower window. Go to Window->Show View-> Others->Gradle. Add both options.
+   For gradle build right click build.gradle -> Gradle -> refresh gradle project.
+   Then go to gradle tasks tab.
+5. Change permission to executable for jar file.
